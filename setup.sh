@@ -32,7 +32,9 @@ echo "###############################"
 echo "##### Extracting tar file #####"
 echo "###############################"
 sudo tar xf $HOME/Downloads/xpack-arm-none-eabi-gcc-10.3.1-2.1-linux-arm.tar.gz -C /usr/share/
+echo "############################################"
 echo "##### Extracting done, adding symlinks #####"
+echo "############################################"
 sudo ln -s /usr/share/xpack-arm-none-eabi-gcc-10.3.1-2.1/bin/arm-none-eabi-addr2line /usr/bin/arm-none-eabi-addr2line
 sudo ln -s /usr/share/xpack-arm-none-eabi-gcc-10.3.1-2.1/bin/arm-none-eabi-ar /usr/bin/arm-none-eabi-ar
 sudo ln -s /usr/share/xpack-arm-none-eabi-gcc-10.3.1-2.1/bin/arm-none-eabi-as /usr/bin/arm-none-eabi-as
