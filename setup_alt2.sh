@@ -33,11 +33,11 @@ pip3 install -r requirements.txt
 echo "########################################################################################"
 echo "##### Downloading GCC Toolchain specific for FlipperZero Firmware as of April 2023 #####"
 echo "########################################################################################"
-wget -P $HOME/Downloads/ "https://github.com/xpack-dev-tools/arm-none-eabi-gcc-xpack/releases/download/v10.3.1-2.1/xpack-arm-none-eabi-gcc-10.3.1-2.1-linux-arm.tar.gz"
+wget -P $HOME/Downloads/ "https://github.com/xpack-dev-tools/arm-none-eabi-gcc-xpack/releases/download/v10.3.1-2.1/xpack-arm-none-eabi-gcc-10.3.1-2.1-linux-arm64.tar.gz"
 echo "###############################"
 echo "##### Extracting tar file #####"
 echo "###############################"
-sudo tar xf $HOME/Downloads/xpack-arm-none-eabi-gcc-10.3.1-2.1-linux-arm.tar.gz -C /usr/share/
+sudo tar xf $HOME/Downloads/xpack-arm-none-eabi-gcc-10.3.1-2.1-linux-arm64.tar.gz -C /usr/share/
 echo "############################################"
 echo "##### Extracting done, adding symlinks #####"
 echo "############################################"

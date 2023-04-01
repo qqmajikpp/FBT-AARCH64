@@ -14,7 +14,9 @@
 echo "######################################"
 echo "##### Remove old toolchain links #####"
 echo "######################################"
+sudo apt remove gcc-arm-none-eabi
 sudo rm -rf /usr/bin/arm-none-eabi*
+sudo rm -rf /usr/share/gcc-arm-none-eabi-10.3-2021.10
 echo "################################"
 echo "##### APT Update + Upgrade #####"
 echo "################################"
