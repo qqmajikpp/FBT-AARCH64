@@ -11,7 +11,7 @@ you have to also either set at run, or edit fbt with: FBT_NOENV=1
 
 Run FBT and get a shiny new dist folder with firmware.
 
-you can flash the dfu via usb by putting yout flip in dfu mode and running:
+you can flash the dfu via usb by putting your flip in dfu mode and running:
 dfu-util -D (firmware name here).dfu -a 0
 
 
