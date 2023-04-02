@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 ######################################################
 # This script was created by ??MajiK?? aka qqmajikpp #
@@ -11,33 +11,73 @@
 # or use a premodifed fbt                            #
 ######################################################
 
-echo "######################################"
-echo "##### Remove old toolchain links #####"
-echo "######################################"
-sudo apt remove gcc-arm-none-eabi
-sudo rm -rf /usr/bin/arm-none-eabi*
-sudo rm -rf /usr/share/xpack-arm-none-eabi-gcc-10.3.1-2.1
-echo "################################"
-echo "##### APT Update + Upgrade #####"
-echo "################################"
+echo "########################################################"
+echo "#####  This script will prep your system for use   #####"
+echo "#####  with FlipperZero's Flipper Build Tool (FBT) #####"
+echo "########################################################"
+echo 
+echo "#####################################################"
+echo "#####  This script uses the aptitude (apt)      #####"
+echo "#####  package manager as well as Python3 PIP.  #####"
+echo "#####################################################"
+echo 
+echo "#################################################"
+echo "#####  It is recommended that you run the   #####"
+echo "#####  pre-setup script before continuing.  #####"
+echo "#####                                       #####"
+echo "#####  Generally the pre-setup script is    #####"
+echo "#####  not necessary for fresh systems.     #####"
+echo "#################################################"
+echo 
+echo 
+echo 
+echo "#####################################################"
+echo "#####################################################"
+echo "#####  !!! WARNING !!! WARNING !!! WARNING !!!  #####"
+echo "#####################################################"
+echo "#####################################################"
+echo 
+echo "###################################################"
+echo "#####  The pre-setup script WILL REMOVE some  #####"
+echo "#####  files and packages from your system    #####"
+echo "#####  as they may cause conflicts with FBT.  #####"
+echo "###################################################"
+echo 
+
+while true; do
+	read -p "Do you wish to run the pre-setup script now? (Y/N) " yn
+	case $yn in
+		[Yy]* ) /bin/sh pre-setup.sh; break;;
+		[Nn]* ) echo "Skipping pre-setup."; echo. ; break;;
+		* ) echo "Please answer yes or no." ;;
+	esac
+done
+
+echo "#########################################"
+echo "##### Continuing with Setup Script  #####"
+echo "#########################################"
+echo .
+echo "###########################################"
+echo "##### APT Update and Upgrade Packages #####"
+echo "###########################################"
 sudo apt update && sudo apt upgrade
 echo "#########################################"
 echo "##### APT Install Required Packages #####"
 echo "#########################################"
-sudo apt -y install binutils-arm-none-eabi libnewlib-arm-none-eabi libnewlib-dev libstdc++-arm-none-eabi-newlib python3 python3-dev
+sudo apt -y install python3 python3-dev python3-pip nanopb libprotobuf23 libprotoc23 protobuf-compiler
 echo "###################################################"
 echo "##### Python PIP Install of Required Packages #####"
 echo "###################################################"
-pip3 install --upgrade pip
-pip3 install -r requirements.txt
+pip install --upgrade pip
+pip install -r requirements.txt
 echo "########################################################################################"
 echo "##### Downloading GCC Toolchain specific for FlipperZero Firmware as of April 2023 #####"
 echo "########################################################################################"
-wget -P $HOME/Downloads/ "https://github.com/xpack-dev-tools/arm-none-eabi-gcc-xpack/releases/download/v10.3.1-2.1/xpack-arm-none-eabi-gcc-10.3.1-2.1-linux-arm.tar.gz"
+wget -P $HOME/Downloads/ "https://github.com/xpack-dev-tools/arm-none-eabi-gcc-xpack/releases/download/v10.3.1-2.1/xpack-arm-none-eabi-gcc-10.3.1-2.1-linux-arm64.tar.gz"
 echo "###############################"
 echo "##### Extracting tar file #####"
 echo "###############################"
-sudo tar xf $HOME/Downloads/xpack-arm-none-eabi-gcc-10.3.1-2.1-linux-arm.tar.gz -C /usr/share/
+sudo tar xf $HOME/Downloads/xpack-arm-none-eabi-gcc-10.3.1-2.1-linux-arm64.tar.gz -C /usr/share/
 echo "############################################"
 echo "##### Extracting done, adding symlinks #####"
 echo "############################################"
