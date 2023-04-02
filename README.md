@@ -7,6 +7,8 @@ This script assumes you are running a debian variant of linux and assumes apt is
 
 run the setup script to installl the toolchain stuff that fbt normally does for x86 on its first run. Note that while fbt installs the toolchain on every fresh clone, you should only have to run this setup script once for the arm system being used. if you clone a fresh repo, the only thing you should need to do if you have the tools installed is replace fbt.
 
+you have to also either set at run, or edit fbt with: FBT_NOENV=1
+
 Run FBT and get a shiny new dist folder with firmware.
 
 
