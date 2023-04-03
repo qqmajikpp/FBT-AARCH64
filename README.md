@@ -7,10 +7,10 @@ This is a setup script that sets up the toolchain for ARM devices, allowing the 
 - is designed to run on 64-bit AARCH64 systems
 - assumes APT is your package manager
 
-#### Usage
+### Usage
 Clone this repo or download the script separately to your ARM device, give execute permission to the script, and run.
 
-#### What does this script do?
+### What does this script do?
 During execution of the setup script, you will be prompted to run a pre-setup script.
 
 This pre-setup script will remove some symlinks from `/usr/bin` including files referencing `arm-none-eabi`.
