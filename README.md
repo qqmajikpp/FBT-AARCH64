@@ -1,24 +1,52 @@
 # FBT-AARCH64
 This is a setup script that sets up the toolchain for ARM devices, allowing the use of the Flipper Build Tool.
  
-this script was created in colllaboration with E_Surge.
+#### This script
+- was created in colllaboration with E_Surge
+- assumes you are running a Debian variant of Linux
+- is designed to run on 64-bit AARCH64 systems
+- assumes APT is your package manager
 
-This script assumes you are running a debian variant of linux and assumes apt is your package manager
+#### Usage
+Clone this repo or download the script separately to your ARM device, give execute permission to the script, and run.
 
-run the setup script to installl the toolchain stuff that fbt normally does for x86 on its first run. Note that while fbt installs the toolchain on every fresh clone, you should only have to run this setup script once for the arm system being used.
+#### What does this script do?
+During execution of the setup script, you will be prompted to run a pre-setup script.
 
-you have to also either set at run, or edit fbt with: FBT_NOENV=1
+This pre-setup script will remove some symlinks from `/usr/bin` including files referencing `arm-none-eabi`.
 
-Run FBT and get a shiny new dist folder with firmware.
+Additionally, this script will remove the following packages from your system:
+- gcc-arm-none-eabi
+- libnewlib-arm-none-eabi
+- libnewlib-dev
+- libstdc++-arm-none-eabi-newlib
 
-you can flash the dfu via usb by putting your flip in dfu mode and running:
-dfu-util -D (firmware name here).dfu -a 0
+Running the pre-setup is optional but with the risk of the packages conflicting with a successful execution of the Flipper Build Tool.
 
+After the pre-setup is complete, the setup script will update your system packages, and install the following packages:
+- python3
+- python3-dev
+- python3-pip
+- nanopb
+- libprotobuf23
+- libprotoc23
+- protobuf-compiler
+
+Also, it'll install the following Python modules:
+- nanopb == 0.4.7
+- protobuf == 3.20.3
+- heatshrink2 == 0.12.0
+- scons == 4.5.2
+- ansi == 0.3.6
+- colorlog == 6.7.0
+- pillow == 9.4.0
+
+After the packages and Python modules are installed, the script will download the **GNU Arm Embedded GCC v10.3.1-2.1** toolchain from a third-party GitHub repo, available [here](https://github.com/xpack-dev-tools/arm-none-eabi-gcc-xpack). The toolchain is extracted to `/usr/share/` and symlinks are created in `/usr/bin/`.
+
+Once the script is complete, you can clone the FlipperZero Firmware repo, and run FBT with `FBT_NOENV=1 ./fbt` or use the modified `fbt` from the repo.
 
 Good Luck & Have Fun
 
-
-
-shout outs to E_Surge, the whole RogueMaster Crew and the Rabbit-Labs Crew
+Shout outs to E_Surge, the whole RogueMaster Crew, and the Rabbit-Labs Crew
 
 
