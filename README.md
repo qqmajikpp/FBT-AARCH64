@@ -45,7 +45,9 @@ After the packages and Python modules are installed, the script will download th
 
 Once the script is complete, you can clone the FlipperZero Firmware repo, and run FBT with `FBT_NOENV=1 ./fbt` or use the modified `fbt` from the repo.
 
-When you get your shiny new dist folder, you can find the dfu inside. If you want to use the aarch64 device to flash your Flipper, put your Flipper into DFU mode as outlined in the Flipper Docs, change to the directory where you new dfu is located and run 
+When you get your shiny new dist folder, you can find the dfu inside. If you want to use the aarch64 device to flash your Flipper, put your Flipper into DFU mode
+as outlined in the Flipper Docs, change to the directory where you new dfu is located and run `dfu-util -D (FirmwareName).dfu -a 0` to flash you flipper. When
+the upload is complete, simple reboot your Flipper.
 
 Good Luck & Have Fun
 
