@@ -1,8 +1,8 @@
 # FBT-AARCH64
 This is a setup script that sets up the toolchain for ARM devices, allowing the use of the Flipper Build Tool.
  
-#### This script
-- was created in colllaboration with E_Surge
+### This script
+- was created in collaboration with E_Surge
 - assumes you are running a Debian variant of Linux
 - is designed to run on 64-bit AARCH64 systems
 - assumes APT is your package manager
