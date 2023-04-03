@@ -45,6 +45,8 @@ After the packages and Python modules are installed, the script will download th
 
 Once the script is complete, you can clone the FlipperZero Firmware repo, and run FBT with `FBT_NOENV=1 ./fbt` or use the modified `fbt` from the repo.
 
+When you get your shiny new dist folder, you can find the dfu inside. You can then c
+
 Good Luck & Have Fun
 
 Shout outs to E_Surge, the whole RogueMaster Crew, and the Rabbit-Labs Crew
