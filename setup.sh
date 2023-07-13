@@ -97,7 +97,8 @@ then
 	echo "###################################################"
 	pip install --upgrade pip
 	pip install nanopb==0.4.7 protobuf==3.20.3 heatshrink2==0.12.0 scons==4.5.2 ansi==0.3.6 colorlog==6.7.0 pillow==9.4.0
-	echo "########################################################################################"
+	pip install pyelftools
+ 	echo "########################################################################################"
 	echo "##### Downloading GCC Toolchain specific for FlipperZero Firmware as of April 2023 #####"
 	echo "########################################################################################"
 	wget -P $HOME/Downloads/ "https://github.com/xpack-dev-tools/arm-none-eabi-gcc-xpack/releases/download/v10.3.1-2.1/xpack-arm-none-eabi-gcc-10.3.1-2.1-linux-arm64.tar.gz"
